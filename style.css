@@ -10,17 +10,12 @@ li { text-decoration: none; list-style-type: none; display: block; color: #fff; 
 
 .page-wrapper {
 	text-align: center;
-	color: #ffe81f;	
+	color: #ffe81f;
+  margin-bottom: -2000px;
+  /* overflow-y: scroll; */
+  /* perspective: 1200px; */
 }
 
-body {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  overflow: hidden;
-  background:url(Stars.gif);
-    background-size:cover;
-}
 
 .fade {
   position: relative;
@@ -32,32 +27,34 @@ body {
 }
 
 body {
+  /* width: 100%;
+  height: 100%; */
+  /* margin-top: -400px;  */
+  background: #000;
+  background:url(Stars.gif);
+  background-size:cover;
+  background-attachment: fixed;
   justify-content: center;
-  position: relative;
-  height: 800px;
+  /* overflow:hidden; */
+  /* position: relative; */
   color: #feda4a;
   font-family: 'Pathway Gothic One', sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: normal;
-  perspective: 400px;
+  perspective:1200px;       
 }
 
-.page-wrapper{
-    position: relative;
-    top: 99999px;
-    transform-origin: 50% 100%;
-    animation: crawl 60s linear;
+@supports (animation-timeline:scroll()) {
+  .page-wrapper {
+      position: relative;
+      /* top: 99999px; */
+      transform-origin: 50% 100%;
+      animation: crawl linear both;
+      animation-timeline: scroll();
+  }
 }
-
-.crawl > .title {
-  font-size: 90%;
-  text-align: center;
-}
-
-.crawl > .title h1 {
-  margin: 0 0 100px;
-  text-transform: uppercase;
-}
+  
+  
 
 @keyframes crawl {
   0% {
@@ -66,7 +63,7 @@ body {
   }
   100% { 
     top: -6000px;
-    transform: rotateX(25deg) translateZ(-2500px);
+    transform: rotateX(25deg) translateZ(-500px);
   }
 }
 
